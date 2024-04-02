@@ -1,5 +1,6 @@
 class MoviesRegistredsController < ApplicationController
   def show
-    @movies = Movie.all
+    @moviesl = Movie.where("release_year <= ?", Date.today.year)
+    @moviesn = Movie.where("release_year > ?", Date.today.year)
   end
 end

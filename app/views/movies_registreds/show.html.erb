@@ -1,10 +1,23 @@
 
-<h1>Filmes registrados</h1>
-<%= link_to 'Home', root_path %><br>
+<h2>Filmes registrados</h2>
 <%= link_to 'Cadastre um novo filme', new_movie_path %><br>
-<% @movies.each do |f| %>
+
+<main><section>
+    <h3>Filmes já lançados</h3>
+<% @moviesl.each do |f| %>
     <%= link_to f.name, movie_path(f.id) %>
     <%= f.release_year %>
     <%= f.release_year > Time.current.year ? flash.notice = 'a ser lançado' : flash.notice = 'já lançado' %>
     <br>
 <% end %>
+</section>
+<section>
+    <h3>Filmes aguardando o lançamento</h3>
+<% @moviesn.each do |f| %>
+    <%= link_to f.name, movie_path(f.id) %>
+    <%= f.release_year %>
+    <%= f.release_year > Time.current.year ? flash.notice = 'a ser lançado' : flash.notice = 'já lançado' %>
+    <br>
+<% end %>
+</section>
+</main>
