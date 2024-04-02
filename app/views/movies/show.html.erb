@@ -1,20 +1,39 @@
 <h1>Dados sobre o filme "<%= @movie.name%>"</h1>
 
-    <%= link_to 'Editar dados do filme', edit_movie_path %>
+<%= link_to 'Editar dados do filme', edit_movie_path(@movie) %>
 
-    <%= @movie.name%>
+<h2><%= @movie.name %></h2>
 
-    <%= @movie.release_year %>
+<dl>
+  <dt>Ano de Lançamento:</dt>
+  <dd><%= @movie.release_year %></dd>
 
-    <%= @movie.country %>
+  <dt>País:</dt>
+  <dd><%= @movie.country %></dd>
 
+  <dt>Duração:</dt>
+  <dd><%= @movie.length %></dd>
 
-    <%= @movie.length %>
+  <dt>Diretor:</dt>
+  <dd><%= @director.name %></dd>
 
+  <dt>Gênero:</dt>
+  <dd><%= @genre.option %></dd>
+  
+  <dt>Status:</dt>
+  <dd><%= @movie.status %></dd>
 
-    <%= @director.name %>
+  <% if @movie.release_year > Time.current.year %>
+    <dt>Status de Lançamento:</dt>
+    <dd>a ser lançado</dd>
+  <% else %>
+    <dt>Status de Lançamento:</dt>
+    <dd>já lançado</dd>
+  <% end %>
+</dl>
 
-    <%= @genre.option%>
-
-    <%= @movie.release_year > Time.current.year ? flash.notice = 'a ser lançado' : flash.notice = 'já lançado' %>
-    
+<% if @movie.published? %>
+  <%= button_to 'Despublicar', publish_movie_path, method: 'patch' %>
+<% else %>     
+  <%= button_to 'Publicar', publish_movie_path, method: 'patch' %>
+<% end %>

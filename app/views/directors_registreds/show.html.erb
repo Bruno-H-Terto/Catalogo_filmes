@@ -1,6 +1,17 @@
 <h1>Diretores registrados</h1>
-<%= link_to 'Home', root_path %><br>
+<br>
 <%= link_to 'Cadastre um novo diretor', new_director_path %><br>
-<% @directors.each do |d| %>
-<%= link_to d.name, director_path(d.id) %><br>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Diretor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @directors.each do |director| %>
+      <tr>
+        <td><%= link_to director.name, director_path(director.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

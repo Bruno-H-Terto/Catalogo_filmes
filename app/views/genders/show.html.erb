@@ -1,6 +1,19 @@
 <h1>Gêneros registrados</h1>
-<%= link_to 'Home', root_path %><br>
-<%= link_to 'Cadastre um novo gênero', new_movie_gender_path %><br>
-<% @movie_gender.each do |g| %>
-<%= link_to g.option, movie_gender_path(g.id) %><br>
-<% end %>
+<%= link_to 'Cadastre um novo gênero', new_movie_gender_path %>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Gênero</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movie_gender.each do |genre| %>
+      <tr>
+        <td><%= link_to genre.option, movie_gender_path(genre.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

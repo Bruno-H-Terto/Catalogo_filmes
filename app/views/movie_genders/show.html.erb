@@ -1,6 +1,15 @@
 <h1>Lista de gêneros</h1>
-<%= link_to 'Editar gênero', edit_movie_gender_path %>
-<%= @movie_gender.option %>
-<% @movies.each do |m| %>
-    <%= m.name %>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Gênero</th>
+      <th>Editar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @movie_gender.option %></td>
+      <td><%= link_to 'Editar gênero', edit_movie_gender_path(@movie_gender) %></td>
+    </tr>
+  </tbody>
+</table>
