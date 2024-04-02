@@ -1,0 +1,9 @@
+<% if flash.notice %>
+    <%= flash.notice %>
+<% end %>
+<%= form_with model: @movie_gender do |g| %>
+    <%= g.label 'Nome' %>
+    <%= g.text_field :name %>
+
+    <%= g.submit 'Salvar' %>
+<% end %>

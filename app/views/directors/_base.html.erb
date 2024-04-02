@@ -1,0 +1,18 @@
+<% if flash.notice %>
+    <%= flash.notice %>
+<% end %>
+<%= form_with model: @director do |d| %>
+    <%= d.label 'Nome' %>
+    <%= d.text_field :name %>
+
+    <%= d.label 'Nacionalidade' %>
+    <%= d.text_field :nationality %>
+
+    <%= d.label 'Data de Nascimento' %>
+    <%= d.date_field :birthday %>
+
+    <%= d.label 'Gênero favorito' %>
+    <%= d.collection_select :movie_genders_id, MovieGender.all, :id, :option %>
+
+    <%= d.submit 'Salvar' %>
+<% end %>

@@ -1,0 +1,25 @@
+<% if flash.notice %>
+    <%= flash.notice %>
+<% end %>
+<%= form_with model: @movie do |m| %>
+    <%= m.label 'Nome' %>
+    <%= m.text_field :name %>
+
+    <%= m.label 'Ano de lançamento' %>
+    <%= m.number_field :release_year%>
+
+    <%= m.label 'País de origem' %>
+    <%= m.text_field :country %>
+
+    <%= m.label 'Duração' %>
+    <%= m.number_field :length %>
+
+    <%= m.label 'Diretor' %>
+    <%= m.collection_select :directors_id, Director.all, :id, :name %>
+
+    <%= m.label 'Gênero' %>
+    <%= m.collection_select :movie_genders_id, MovieGender.all, :id, :option %>
+
+
+    <%= m.submit 'Salvar' %>
+<% end %>

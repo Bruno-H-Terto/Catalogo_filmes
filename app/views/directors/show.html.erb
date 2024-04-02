@@ -1,0 +1,7 @@
+<h1>Diretor <%=@director.name%></h1>
+<%= link_to 'Home', root_path %>
+<%= @director.name %>
+<%= link_to 'Editar dados', edit_director_path %>
+<% @movies.each do |m| %>
+    <%= m.name %>
+<% end %>

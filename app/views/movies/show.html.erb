@@ -1,0 +1,20 @@
+<h1>Dados sobre o filme "<%= @movie.name%>"</h1>
+
+
+
+    <%= @movie.name%>
+
+    <%= @movie.release_year %>
+
+    <%= @movie.country %>
+
+
+    <%= @movie.length %>
+
+
+    <%= @director.name %>
+
+    <%= @genre.option%>
+
+    <%= @movie.release_year > Time.current.year ? flash.notice = 'a ser lançado' : flash.notice = 'já lançado' %>
+    
