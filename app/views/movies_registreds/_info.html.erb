@@ -1,0 +1,45 @@
+<table>
+  <thead>
+    <tr>
+        <th></th>
+      <th>Filme</th>
+      <th>Ano de Lançamento</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @moviesl.each do |movie| %>
+      <tr>
+        <td><img src="<%= movie.srcimg%>" width='150px' alt="<%=movie.name%>">    </td>
+        <td><%= link_to movie.name, movie_path(movie.id) %></td>
+        
+        <td><%= movie.release_year %></td>
+        <td><%= movie.release_year > Time.current.year ? 'a ser lançado' : 'já lançado' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</section>
+<section>
+    <h3>Filmes aguardando o lançamento</h3>
+<table>
+  <thead>
+    <tr>
+        <th></th>
+      <th>Filme</th>
+      <th>Ano de Lançamento</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @moviesn.each do |movie| %>
+      <tr>
+        <td><img src="<%= movie.srcimg%>" width='150px' alt="<%=movie.name%>">    </td>
+        <td><%= link_to movie.name, movie_path(movie.id) %></td>
+        <td><%= movie.release_year %></td>
+        <td><%= movie.release_year > Time.current.year ? 'a ser lançado' : 'já lançado' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

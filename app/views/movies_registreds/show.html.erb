@@ -5,46 +5,7 @@
 </ul>
 <main><section>
     <h3>Filmes revisados</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Filme</th>
-      <th>Ano de Lançamento</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @moviesl.each do |movie| %>
-      <tr>
-        <td><%= link_to movie.name, movie_path(movie.id) %></td>
-        <td><%= movie.release_year %></td>
-        <td><%= movie.release_year > Time.current.year ? 'a ser lançado' : 'já lançado' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-</section>
-<section>
-    <h3>Filmes aguardando o lançamento</h3>
-<table>
-  <thead>
-    <tr>
-      <th>Filme</th>
-      <th>Ano de Lançamento</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @moviesn.each do |movie| %>
-      <tr>
-        <td><%= link_to movie.name, movie_path(movie.id) %></td>
-        <td><%= movie.release_year %></td>
-        <td><%= movie.release_year > Time.current.year ? 'a ser lançado' : 'já lançado' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <%= render partial: 'info', local: { moviesn: @moviesn, moviesl: @moviesl } %>
 
 </section>
 </main>

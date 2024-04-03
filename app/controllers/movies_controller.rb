@@ -16,7 +16,8 @@ class MoviesController < ApplicationController
       country: params[:movie][:country],
       length: params[:movie][:length],
       directors_id: params[:movie][:directors_id],
-      movie_genders_id: params[:movie][:movie_genders_id]
+      movie_genders_id: params[:movie][:movie_genders_id],
+      srcimg: params[:movie][:srcimg]
     )
 
     if @movie.save
@@ -41,6 +42,7 @@ class MoviesController < ApplicationController
       length: params[:movie][:length],
       directors_id: params[:movie][:directors_id],
       movie_genders_id: params[:movie][:movie_genders_id],
+      srcimg: params[:movie][:srcimg]
     )
       flash.notice = 'Filme atualizado com sucesso!'
       return redirect_to edit_movie_path

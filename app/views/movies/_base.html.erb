@@ -19,6 +19,9 @@
     <%= m.label 'Gênero' %>
     <%= m.collection_select :movie_genders_id, MovieGender.all, :id, :option %>
 
+    <% m.label 'Caminho para a imagem do pôster' %>
+    <%= m.text_field :srcimg %>
+
     <%= m.submit 'Salvar' %>
 <% end %>
 <% if flash.notice && (flash.notice != 'já lançado' && flash.notice != 'a ser lançado')%>
